@@ -1,0 +1,3 @@
+A few simple Munin plugins to monitor beanstalkd.
+
+Written in Python. Requires beanstalkc.
