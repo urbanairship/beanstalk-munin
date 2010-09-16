@@ -1,3 +1,5 @@
 A few simple Munin plugins to monitor beanstalkd.
 
 Written in Python. Requires beanstalkc.
+
+List tubes to monitor using the TUBES variable in bs_queue_age.py.
