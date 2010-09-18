@@ -28,6 +28,7 @@ def do_config():
     for j in cmds:
         print '%s.label %s' % (j[0], j[2])
         print '%s.min 0' % j[0]
+        print '%s.type DERIVED' % j[0]
 
 if __name__ == '__main__':
     if len(sys.argv) > 1 and sys.argv[1] == 'config':
