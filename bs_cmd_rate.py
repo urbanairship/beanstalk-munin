@@ -6,24 +6,26 @@ import beanstalkc
 HOST = os.environ.get('HOST', 'localhost')
 PORT = os.environ.get('PORT', 11300)
 
-jobs = [ ['ready', 'current-jobs-ready', 'Ready'],
-         ['urgent', 'current-jobs-urgent', 'Urgent'],
-         ['reserved', 'current-jobs-reserved', 'Reserved'],
-         ['delayed', 'current-jobs-delayed', 'Delayed'],
-         ['buried', 'current-jobs-buried', 'Buried'] ]
+cmds = [ ['put', 'cmd-put', 'Put'],
+         ['reserve', 'cmd-reserve', 'Reserve'],
+         ['reserve_timeout', 'cmd-reserve-with-timeout', 'Reserve with timeout'],
+         ['delete', 'cmd-delete', 'Delete'],
+         ['touch', 'cmd-touch', 'Touch'],
+         ['release', 'cmd-release', 'release'],
+         ['bury', 'cmd-bury', 'Bury'] ]
 
 def do_data():
     stats = beanstalkc.Connection(HOST, PORT).stats()
-    for j in jobs:
+    for j in cmds:
         print '%s.value %d' % (j[0], stats[j[1]])
 
 def do_config():
-    print "graph_title Queue Size"
-    print "graph_vlabel Number of jobs in the queue"
+    print "graph_title Command Rate"
+    print "graph_vlabel Commands per second"
     print "graph_category Beanstalk"
     print "graph_args --lower-limit 0"
     print "graph_scale no"
-    for j in jobs:
+    for j in cmds:
         print '%s.label %s' % (j[0], j[2])
         print '%s.min 0' % j[0]
 

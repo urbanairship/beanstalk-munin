@@ -4,10 +4,9 @@ import os
 import sys
 import beanstalkc
 
-HOST = os.environ.get('BEANSTALK_HOST', 'localhost')
-PORT = os.environ.get('BEANSTALK_PORT', 11300)
-# FIXME You'll want to customize this for the tubes you want to monitor
-TUBES = ('default',)
+HOST = os.environ.get('HOST', 'localhost')
+PORT = os.environ.get('PORT', 11300)
+TUBES = os.environ.get('TUBES', 'default').split()
 
 def clean_tube(tube):
     return tube.replace('.', '_')
@@ -23,6 +22,7 @@ def do_data():
 def do_config():
     print "graph_title Job Age"
     print "graph_vlabel Max Age"
+    print "graph_category Beanstalk"
     print "graph_args --lower-limit 0"
     print "graph_scale no"
     for tube in TUBES:

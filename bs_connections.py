@@ -3,21 +3,21 @@ import os
 import sys
 import beanstalkc
 
-HOST = os.environ.get('BEANSTALK_HOST', 'localhost')
-PORT = os.environ.get('BEANSTALK_PORT', 11300)
+HOST = os.environ.get('HOST', 'localhost')
+PORT = os.environ.get('PORT', 11300)
 
 def do_data():
     stats = beanstalkc.Connection(HOST, PORT).stats()
-    print 'queue_jobs.value %d' % stats['total-jobs']
+    print 'connections.value %d' % stats['current-connections']
 
 def do_config():
-    print "graph_title Queue Jobs"
-    print "graph_vlabel Added Jobs/second"
+    print "graph_title Open connections"
+    print "graph_vlabel Connections"
+    print "graph_category Beanstalk"
     print "graph_args --lower-limit 0"
     print "graph_scale no"
-    print "queue_jobs.label Jobs"
-    print "queue_jobs.type DERIVE"
-    print "queue_jobs.min 0"
+    print "connections.label Connections"
+    print "connections.min 0"
 
 
 if __name__ == '__main__':
