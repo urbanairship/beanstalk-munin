@@ -25,6 +25,7 @@ def do_config():
     print "graph_scale no"
     for j in jobs:
         print '%s.label %s' % (j[0], j[2])
+        print '%s.type GAUGE' % j[0]
         print '%s.min 0' % j[0]
 
 if __name__ == '__main__':

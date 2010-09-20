@@ -12,7 +12,7 @@ def do_data():
 
 def do_config():
     print "graph_title Job Rate"
-    print "graph_vlabel Added Jobs/second"
+    print "graph_vlabel Jobs per ${graph_period}"
     print "graph_category Beanstalk"
     print "graph_args --lower-limit 0"
     print "graph_scale no"

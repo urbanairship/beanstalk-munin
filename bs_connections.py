@@ -17,6 +17,7 @@ def do_config():
     print "graph_args --lower-limit 0"
     print "graph_scale no"
     print "connections.label Connections"
+    print "connections.type GAUGE"
     print "connections.min 0"
 
 

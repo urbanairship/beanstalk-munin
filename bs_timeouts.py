@@ -12,7 +12,7 @@ def do_data():
 
 def do_config():
     print "graph_title Job Timeouts"
-    print "graph_vlabel Timeouts/second"
+    print "graph_vlabel Timeouts per ${graph_period}"
     print "graph_category Beanstalk"
     print "graph_args --lower-limit 0"
     print "graph_scale no"
