@@ -27,7 +27,7 @@ def do_config():
     print "graph_scale no"
     for j in cmds:
         print 'cmd_%s.label %s' % (j[0], j[2])
-        print 'cmd_%s.type DERIVED' % j[0]
+        print 'cmd_%s.type DERIVE' % j[0]
         print 'cmd_%s.min 0' % j[0]
 
 if __name__ == '__main__':
