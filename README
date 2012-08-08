@@ -1,5 +1,5 @@
 A few simple Munin plugins to monitor beanstalkd.
 
-Written in Python. Requires beanstalkc.
+Written in Python. Requires beanstalkc. APLv2 License.
 
 List tubes to monitor using the TUBES variable in Munin's plugin conf.
